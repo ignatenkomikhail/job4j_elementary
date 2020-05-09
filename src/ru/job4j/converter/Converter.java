@@ -1,16 +1,35 @@
 package ru.job4j.converter;
 
+/**
+ * Converter.
+ *
+ * @author Mikhail Ignatenko
+ * @since 06.05.2020
+ */
 public class Converter {
-
+    /**
+     *
+     * @param value The amount of the ruble.
+     * @return The amount of the euro.
+     */
     public static int rubleToEuro(int value) {
         return value / 70;
     }
 
+    /**
+     *
+     * @param value The amount of the ruble.
+     * @return The amount of the dollar.
+     */
     public static int rubleToDollar(int value) {
-        return value / 60;  // формула перевода рублей в доллоры.
+        return value / 60;
     }
 
-    public static void main(String[] args) {
+    /**
+     * Main.
+     * @param args - args
+     */
+     public static void main(String[] args) {
         int in = 140;
         int expected = 2;
         int out = rubleToEuro(in);
