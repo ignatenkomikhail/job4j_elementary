@@ -20,6 +20,12 @@ public class ThreeMaxTest {
     }
 
     @Test
+    public void secondMax2() {
+        int rsl = ThreeMax.max(1, 4, 2);
+        assertThat(rsl, is(4));
+    }
+
+    @Test
     public void thirdMax() {
         int rsl = ThreeMax.max(1, 5, 100);
         assertThat(rsl, is(100));
