@@ -17,14 +17,11 @@ public class Slash {
             for (int cell = 0; cell < size; cell++) {
                 boolean left = cell == row;
                 boolean right = cell + row == size - 1;
-                if (left) {
+                if (left || right) {
                     System.out.print("0");
-                } else
-                    if (right) {
-                        System.out.print("0");
-                    } else {
-                        System.out.print(" ");
-                    }
+                } else {
+                    System.out.print(" ");
+                }
             }
             System.out.println();
         }
