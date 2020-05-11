@@ -24,4 +24,14 @@ public class FindLoopTest {
         FindLoop find = new FindLoop();
         assertThat(find.indexOf(new int[]{4, 2, 40, 9, 18}, 9), is(3));
     }
+    @Test
+    public void whenRangeArray9NotFound() {
+        FindLoop find = new FindLoop();
+        assertThat(find.indexOf(new int[]{1, 2, 3, 4, 5, 6, 7}, 9, 2, 5), is(-1));
+    }
+    @Test
+    public void whenRangeArray5Then4() {
+        FindLoop find = new FindLoop();
+        assertThat(find.indexOf(new int[]{1, 2, 3, 4, 5, 6, 7}, 5, 2, 5), is(4));
+    }
 }
