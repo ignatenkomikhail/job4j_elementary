@@ -5,18 +5,18 @@ public class Calculator {
     public static void main(String[] args) {
         int one = 1;
         int two = 2;
-        int onePlusTwo = one + two;
-        System.out.println(onePlusTwo);
+        int summa = one + two;
+        System.out.println(summa);
 
         int six = 6;
         int four = 4;
         int five = 5;
-        int sixDivTwo = six / two;
-        int fiveMinusTwo  = five - two;
-        int fourTimeTwo  = four * two;
+        int division = six / two;
+        int minus = five - two;
+        int multiplication = four * two;
 
-        System.out.println(sixDivTwo);
-        System.out.println(fiveMinusTwo);
-        System.out.println(fourTimeTwo);
+        System.out.println(division);
+        System.out.println(minus);
+        System.out.println(multiplication);
     }
 }
