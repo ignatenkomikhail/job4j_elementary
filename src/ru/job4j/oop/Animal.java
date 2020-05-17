@@ -2,7 +2,10 @@ package ru.job4j.oop;
 
 public class Animal {
 
-    public Animal() {
+    public String name;
+
+    public Animal(String name) {
+        this.name = name;
         System.out.println("Class Animal..");
     }
 }
