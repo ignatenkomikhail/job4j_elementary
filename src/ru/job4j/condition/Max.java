@@ -7,10 +7,10 @@ public class Max {
     }
 
     public static int max(int one, int two, int three) {
-        return (three > Max.max(one, two)) ? three : Max.max(one, two);
+        return max(max(one, two), three);
     }
 
     public static int max(int one, int two, int three, int four) {
-        return (four > Max.max(one, two, three)) ? four : Max.max(one, two, three);
+        return max(max(max(one, two), three), four);
     }
 }
