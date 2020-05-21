@@ -16,11 +16,10 @@ public class Shop {
         while (index < products.length - 1) {
             if (products[index] != null) {
                 products[index] = products[index + 1];
-                index++;
-            } else {
-                break;
             }
+            index++;
         }
+        products[index] = null;
     }
 
     public static void main(String[] args) {
@@ -28,6 +27,8 @@ public class Shop {
         products[0] = new Product("Milk", 10);
         products[1] = new Product("Bread", 4);
         products[2] = new Product("Egg", 19);
+        products[3] = new Product("cheese", 5);
+        products[4] = new Product("apple", 12);
         Shop.show(products);
         System.out.println("\nУдаляем значение из ячейки с индексом 1");
         Shop.delete(products, 1);
