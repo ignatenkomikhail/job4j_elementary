@@ -14,9 +14,7 @@ public class Shop {
 
     public static void delete(Product[] products, int index) {
         while (index < products.length - 1) {
-            if (products[index] != null) {
-                products[index] = products[index + 1];
-            }
+            products[index] = products[index + 1];
             index++;
         }
         products[index] = null;
