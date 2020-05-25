@@ -1,5 +1,7 @@
 package ru.job4j.stragery;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -9,14 +11,24 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class PaintTest {
+    private final PrintStream stdout = System.out;
+    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+    @Before
+    public void loadOutput() {
+        System.out.println("Reassigning the output to Byte Array.");
+        System.setOut(new PrintStream(this.out));
+    }
+    @After
+    public void backOutput() {
+        System.setOut(this.stdout);
+        System.out.println("Reassigning the output to \"standard\" output stream.");
+    }
     @Test
     public void whenDrawSqr() {
-        PrintStream stdout = System.out;
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
         new Paint().draw(new Sqr());
         assertThat(
-                new String(out.toByteArray()),
+                this.out.toString(),
                  is(
                         new StringJoiner(System.lineSeparator())
                                 .add("*******")
@@ -27,16 +39,12 @@ public class PaintTest {
                                 .toString()
                 )
         );
-        System.setOut(stdout);
     }
     @Test
     public void whenDrawTrngl() {
-        PrintStream stdout = System.out;
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
         new Paint().draw(new Trngl());
         assertThat(
-                new String(out.toByteArray()),
+                this.out.toString(),
                 is(
                         new StringJoiner(System.lineSeparator())
                                 .add("   *   ")
@@ -47,6 +55,5 @@ public class PaintTest {
                                 .toString()
                 )
         );
-        System.setOut(stdout);
     }
 }
