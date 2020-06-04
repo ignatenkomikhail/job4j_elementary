@@ -10,12 +10,9 @@ public class Machine {
         int size = 0;
         money -= price;
         for (int coin : this.coins) {
-            while (money >= coin) {
+            while (money - coin >= 0) {
                 money -= coin;
                 result[size++] = coin;
-            }
-            if (money == 0) {
-                break;
             }
         }
         return Arrays.copyOf(result, size);

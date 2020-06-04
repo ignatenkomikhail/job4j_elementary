@@ -19,5 +19,5 @@ public class MachineTest {
         int[] expected = {10, 5};
         int[] rsl = machine.change(50, 35);
         assertThat(rsl, is(expected));
-    }
+     }
 }
