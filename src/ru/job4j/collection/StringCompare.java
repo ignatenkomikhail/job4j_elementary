@@ -14,10 +14,8 @@ public class StringCompare implements Comparator<String> {
                 break;
             }
         }
-        if (i < a.length() && cmp == 0) {
-            cmp = 1;
-        } else if (i < b.length() && cmp == 0) {
-            cmp = -1;
+        if (cmp == 0) {
+            cmp = Integer.compare(a.length(), b.length());
         }
         return cmp;
     }
