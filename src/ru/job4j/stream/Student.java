@@ -40,4 +40,12 @@ public class Student {
     public int hashCode() {
         return Objects.hash(this.score, this.surname);
     }
+
+    @Override
+    public String toString() {
+        return "Student{"
+                + "score=" + score
+                + ", surname='" + surname + '\''
+                + '}';
+    }
 }

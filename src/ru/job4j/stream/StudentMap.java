@@ -9,6 +9,11 @@ public class StudentMap {
 
     public static Map<String, Student> collect(List<Student> students) {
         return students.stream()
-                .collect(Collectors.toMap(Student::getSurname, e -> e));
+                .collect(Collectors.toMap(
+                        Student::getSurname,
+                        e -> e,
+                        (a, b) -> a
+                        )
+                );
     }
 }
