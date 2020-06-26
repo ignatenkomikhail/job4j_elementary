@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
@@ -23,29 +24,36 @@ public class BankService {
     }
 
     public User findByPassport(String passport) {
-        User user = null;
+        /*User user = null;
         for (User u : this.users.keySet()) {
             if (passport.equals(u.getPassport())) {
                 user = u;
                 break;
             }
-        }
-        return user;
+        }*/
+        List<User> list = users.keySet().stream()
+                .filter(e -> passport.equals(e.getPassport()))
+                .collect(Collectors.toList());
+        return (list != null && list.size() > 0) ? list.get(0) : null;
     }
 
     public Account findByRequisite(String passport, String requisite) {
-        Account account = null;
+        //Account account = null;
         User user = this.findByPassport(passport);
+        List<Account> list = null;
         if (user != null) {
-            List<Account> accounts = this.users.get(user);
+            /*List<Account> accounts = this.users.get(user);
             for (Account acc : accounts) {
                 if (requisite.equals(acc.getRequisite())) {
                     account = acc;
                     break;
                 }
-            }
+            }*/
+            list = this.users.get(user).stream()
+                    .filter(e -> requisite.equals(e.getRequisite()))
+                    .collect(Collectors.toList());
         }
-        return account;
+        return (list != null && list.size() > 0) ? list.get(0) : null;
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
