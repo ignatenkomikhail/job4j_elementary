@@ -30,30 +30,33 @@ public class BankService {
                 user = u;
                 break;
             }
-        }*/
-        List<User> list = users.keySet().stream()
+        }
+        return user;*/
+        return users.keySet().stream()
                 .filter(e -> passport.equals(e.getPassport()))
-                .collect(Collectors.toList());
-        return (list != null && list.size() > 0) ? list.get(0) : null;
+                .findFirst()
+                .orElse(null);
     }
 
     public Account findByRequisite(String passport, String requisite) {
-        //Account account = null;
+        /*Account account = null;
         User user = this.findByPassport(passport);
-        List<Account> list = null;
         if (user != null) {
-            /*List<Account> accounts = this.users.get(user);
+            List<Account> accounts = this.users.get(user);
             for (Account acc : accounts) {
                 if (requisite.equals(acc.getRequisite())) {
                     account = acc;
                     break;
                 }
-            }*/
-            list = this.users.get(user).stream()
-                    .filter(e -> requisite.equals(e.getRequisite()))
-                    .collect(Collectors.toList());
+            }
         }
-        return (list != null && list.size() > 0) ? list.get(0) : null;
+        return account;*/
+        User user = this.findByPassport(passport);
+        return (user == null) ? null
+                : this.users.get(user).stream()
+                    .filter(e -> requisite.equals(e.getRequisite()))
+                    .findFirst()
+                    .orElse(null);
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
