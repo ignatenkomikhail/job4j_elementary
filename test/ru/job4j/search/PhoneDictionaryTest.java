@@ -11,7 +11,7 @@ public class PhoneDictionaryTest {
 
     @Test
     public void whenFindPerson() {
-        PhoneDictionary pd = new PhoneDictionary();
+        var pd = new PhoneDictionary();
         pd.add(
                 new Person("John", "Doe", "555-00-11", "Tinseltown")
         );
@@ -21,7 +21,7 @@ public class PhoneDictionaryTest {
 
     @Test
     public void whenFindByName() {
-        PhoneDictionary phones = new PhoneDictionary();
+        var phones = new PhoneDictionary();
         phones.add(
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
         );

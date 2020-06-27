@@ -9,12 +9,12 @@ public class PriorityQueueTest {
 
     @Test
     public void whenPutQueue() {
-        PriorityQueue queue = new PriorityQueue();
+        var queue = new PriorityQueue();
         queue.put(new Task("normal", 3));
         queue.put(new Task("realtime", 1));
         queue.put(new Task("high", 1));
         queue.put(new Task("low", 5));
-        Task task = queue.take();
+        var task = queue.take();
         assertThat(task.getDesc(), is("realtime"));
     }
 }
