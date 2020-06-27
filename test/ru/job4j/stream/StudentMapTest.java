@@ -2,7 +2,6 @@ package ru.job4j.stream;
 
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +20,7 @@ public class StudentMapTest {
         Map<String, Student> expected = new HashMap<>();
         expected.put("Ivanov", std1);
         expected.put("Petrov", std2);
-        List<Student> students = Arrays.asList(std1, std2, std3, std4);
+        List<Student> students = List.of(std1, std2, std3, std4);
         Map<String, Student> map = StudentMap.collect(students);
         assertThat(map, is(expected));
     }

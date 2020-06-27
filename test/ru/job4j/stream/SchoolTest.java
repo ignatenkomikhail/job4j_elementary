@@ -3,7 +3,6 @@ package ru.job4j.stream;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -14,7 +13,7 @@ public class SchoolTest {
 
     @Test
     public void whenCollectLessThan50() {
-        List<Student> students = Arrays.asList(
+        List<Student> students = List.of(
                 new Student("Jack", 67),
                 new Student("John", 39),
                 new Student("Smit", 90),
@@ -43,7 +42,7 @@ public class SchoolTest {
 
     @Test
     public void whenCollectMoreThan70() {
-        List<Student> students = Arrays.asList(
+        List<Student> students = List.of(
                 new Student("John", 39),
                 new Student("Jack", 67),
                 new Student("Smit", 90),

@@ -2,7 +2,6 @@ package ru.job4j.stream;
 
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.core.Is.is;
@@ -17,6 +16,6 @@ public class MatrixMapTest {
                 {4, 5, 6}
         };
         List<Integer> out = MatrixMap.collect(integers);
-        assertThat(out, is(Arrays.asList(1, 2, 3, 4, 5, 6)));
+        assertThat(out, is(List.of(1, 2, 3, 4, 5, 6)));
     }
 }
