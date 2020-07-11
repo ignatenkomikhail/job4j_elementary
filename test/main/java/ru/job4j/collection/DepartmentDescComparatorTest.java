@@ -1,0 +1,29 @@
+package main.java.ru.job4j.collection;
+
+import org.junit.Test;
+import ru.job4j.collection.DepartmentDescComparator;
+
+import static org.junit.Assert.*;
+import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.lessThan;
+
+public class DepartmentDescComparatorTest {
+
+    @Test
+    public void compare() {
+        int rsl = new DepartmentDescComparator().compare(
+                "K2/SK1/SSK2",
+                "K2/SK1/SSK1"
+        );
+        assertThat(rsl, greaterThan(0));
+    }
+
+    @Test
+    public void whenUpDepartmentGoBefore() {
+        int rsl = new DepartmentDescComparator().compare(
+                "K2",
+                "K2/SK1"
+        );
+        assertThat(rsl, lessThan(0));
+    }
+}
